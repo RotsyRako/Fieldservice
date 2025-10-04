@@ -1,0 +1,3 @@
+class Regex {
+  static final email = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+}
