@@ -1,6 +1,6 @@
 {
-    "name": "arkup_edoo",
-    "short_name": "arkup_edoo",
+    "name": "field_service",
+    "short_name": "field_service",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

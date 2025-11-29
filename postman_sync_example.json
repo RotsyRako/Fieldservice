@@ -1,0 +1,225 @@
+{
+  "data": [
+    {
+      "id": "intervention-123",
+      "status": 2,
+      "materials": [
+        {
+          "id": "material-1",
+          "name": "Câble électrique",
+          "quantity": 5,
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T10:30:00.000Z",
+          "updatedAt": "2024-01-15T10:30:00.000Z",
+          "isSync": false
+        },
+        {
+          "id": "material-2",
+          "name": "Interrupteur",
+          "quantity": 2,
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T10:35:00.000Z",
+          "updatedAt": "2024-01-15T10:35:00.000Z",
+          "isSync": false
+        }
+      ],
+      "timesheets": [
+        {
+          "id": "timesheet-1",
+          "description": "Installation électrique",
+          "timeAllocated": 4.5,
+          "date": "2024-01-15",
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T14:00:00.000Z",
+          "updatedAt": "2024-01-15T14:00:00.000Z",
+          "isSync": false
+        },
+        {
+          "id": "timesheet-2",
+          "description": "Tests et vérifications",
+          "timeAllocated": 1.5,
+          "date": "2024-01-15",
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T16:00:00.000Z",
+          "updatedAt": "2024-01-15T16:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "images": [
+        {
+          "id": "image-1",
+          "ic": 0,
+          "filename": "photo_avant_travaux.jpg",
+          "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T09:00:00.000Z",
+          "updatedAt": "2024-01-15T09:00:00.000Z",
+          "isSync": false
+        },
+        {
+          "id": "image-2",
+          "ic": 0,
+          "filename": "photo_apres_travaux.jpg",
+          "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T17:00:00.000Z",
+          "updatedAt": "2024-01-15T17:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "documents": [
+        {
+          "id": "document-1",
+          "filename": "facture.pdf",
+          "data": "JVBERi0xLjQKJeLjz9MKMyAwIG9iago8PC9MZW5ndGggNCAwIFIvRmlsdGVyL0ZsYXRlRGVjb2RlPj4Kc3RyZWFtCnic7Z0=",
+          "idIntervention": "intervention-123",
+          "createdAt": "2024-01-15T18:00:00.000Z",
+          "updatedAt": "2024-01-15T18:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "signature": {
+        "id": "signature-1",
+        "filename": "signature_client.png",
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "idIntervention": "intervention-123",
+        "createdAt": "2024-01-15T18:30:00.000Z",
+        "updatedAt": "2024-01-15T18:30:00.000Z",
+        "isSync": false
+      },
+      "comments": [
+        {
+          "id": "comment-1",
+          "message": "Travaux effectués avec succès. Le client est satisfait.",
+          "idIntervention": "intervention-123",
+          "date": "15/01/2024",
+          "createdAt": "2024-01-15T18:45:00.000Z",
+          "updatedAt": "2024-01-15T18:45:00.000Z",
+          "isSync": false
+        },
+        {
+          "id": "comment-2",
+          "message": "Note importante : Remplacer le tableau électrique dans 6 mois.",
+          "attachmentData": null,
+          "attachmentFilename": null,
+          "idIntervention": "intervention-123",
+          "date": "15/01/2024",
+          "createdAt": "2024-01-15T19:00:00.000Z",
+          "updatedAt": "2024-01-15T19:00:00.000Z",
+          "isSync": false
+        }
+      ]
+    },
+    {
+      "id": "intervention-124",
+      "status": 2,
+      "materials": [
+        {
+          "id": "material-3",
+          "name": "Câble électrique",
+          "quantity": 3,
+          "idIntervention": "intervention-124",
+          "createdAt": "2024-01-16T10:30:00.000Z",
+          "updatedAt": "2024-01-16T10:30:00.000Z",
+          "isSync": false
+        }
+      ],
+      "timesheets": [
+        {
+          "id": "timesheet-3",
+          "description": "Réparation",
+          "timeAllocated": 2.0,
+          "date": "2024-01-16",
+          "idIntervention": "intervention-124",
+          "createdAt": "2024-01-16T14:00:00.000Z",
+          "updatedAt": "2024-01-16T14:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "images": [
+        {
+          "id": "image-3",
+          "ic": 0,
+          "filename": "photo_reparation.jpg",
+          "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+          "idIntervention": "intervention-124",
+          "createdAt": "2024-01-16T09:00:00.000Z",
+          "updatedAt": "2024-01-16T09:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "documents": [],
+      "comments": [
+        {
+          "id": "comment-3",
+          "message": "Intervention sans signature.",
+          "idIntervention": "intervention-124",
+          "date": "16/01/2024",
+          "createdAt": "2024-01-16T18:45:00.000Z",
+          "updatedAt": "2024-01-16T18:45:00.000Z",
+          "isSync": false
+        }
+      ]
+    },
+    {
+      "id": "intervention-125",
+      "status": 2,
+      "materials": [
+        {
+          "id": "material-4",
+          "name": "Ampoule LED",
+          "quantity": 4,
+          "idIntervention": "intervention-125",
+          "createdAt": "2024-01-17T10:30:00.000Z",
+          "updatedAt": "2024-01-17T10:30:00.000Z",
+          "isSync": false
+        }
+      ],
+      "timesheets": [],
+      "images": [
+        {
+          "id": "image-4",
+          "ic": 0,
+          "filename": "photo_remplacement.jpg",
+          "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+          "idIntervention": "intervention-125",
+          "createdAt": "2024-01-17T09:00:00.000Z",
+          "updatedAt": "2024-01-17T09:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "documents": [
+        {
+          "id": "document-2",
+          "filename": "facture_remplacement.pdf",
+          "data": "JVBERi0xLjQKJeLjz9MKMyAwIG9iago8PC9MZW5ndGggNCAwIFIvRmlsdGVyL0ZsYXRlRGVjb2RlPj4Kc3RyZWFtCnic7Z0=",
+          "idIntervention": "intervention-125",
+          "createdAt": "2024-01-17T18:00:00.000Z",
+          "updatedAt": "2024-01-17T18:00:00.000Z",
+          "isSync": false
+        }
+      ],
+      "signature": {
+        "id": "signature-2",
+        "filename": "signature_client_2.png",
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "idIntervention": "intervention-125",
+        "createdAt": "2024-01-17T18:30:00.000Z",
+        "updatedAt": "2024-01-17T18:30:00.000Z",
+        "isSync": false
+      },
+      "comments": [
+        {
+          "id": "comment-4",
+          "message": "Intervention sans timesheet.",
+          "idIntervention": "intervention-125",
+          "date": "17/01/2024",
+          "createdAt": "2024-01-17T18:45:00.000Z",
+          "updatedAt": "2024-01-17T18:45:00.000Z",
+          "isSync": false
+        }
+      ]
+    }
+  ]
+}
+

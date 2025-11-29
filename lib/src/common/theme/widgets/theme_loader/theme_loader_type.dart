@@ -1,0 +1,1 @@
+enum ThemeLoaderType { regular, animated }

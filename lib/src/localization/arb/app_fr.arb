@@ -1,0 +1,76 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Field Service",
+  "@appTitle": {
+    "description": "Le titre de l'application"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Le label pour le champ email"
+  },
+  "password": "Mot de passe",
+  "@password": {
+    "description": "Le label pour le champ mot de passe"
+  },
+  "connection": "Connexion",
+  "@connection": {
+    "description": "Le titre de la page de connexion"
+  },
+  "yourTechnicianSpace": "Votre espace technicien",
+  "@yourTechnicianSpace": {
+    "description": "Le sous-titre de la page de connexion"
+  },
+  "forgotPassword": "Mot de passe oublié ?",
+  "@forgotPassword": {
+    "description": "Le lien pour récupérer le mot de passe"
+  },
+  "signIn": "Se connecter",
+  "@signIn": {
+    "description": "Le bouton de connexion"
+  },
+  "resetPassword": "Réinitialiser mon mot de passe",
+  "@resetPassword": {
+    "description": "Le titre de la page de réinitialisation"
+  },
+  "resetPasswordDescription": "Entrez votre adresse e-mail pour recevoir un lien de réinitialisation. Vous devez être connecté à Internet pour finaliser cette opération.",
+  "@resetPasswordDescription": {
+    "description": "La description de la page de réinitialisation"
+  },
+  "sendResetLink": "Envoyer le lien de réinitialisation",
+  "@sendResetLink": {
+    "description": "Le bouton pour envoyer le lien de réinitialisation"
+  },
+  "myInterventions": "Mes interventions",
+  "@myInterventions": {
+    "description": "Le titre de l'écran Home"
+  },
+  "searchIntervention": "Rechercher une intervention...",
+  "@searchIntervention": {
+    "description": "Le placeholder du champ de recherche"
+  },
+  "ongoing": "En cours",
+  "@ongoing": {
+    "description": "Le titre de la section des interventions en cours"
+  },
+  "planned": "Planifiées",
+  "@planned": {
+    "description": "Le titre de la section des interventions planifiées"
+  },
+  "completed": "Terminées",
+  "@completed": {
+    "description": "Le titre de la section des interventions terminées"
+  },
+  "online": "En ligne",
+  "@online": {
+    "description": "Le statut de connexion internet"
+  },
+  "signOut": "Se déconnecter",
+  "@signOut": {
+    "description": "Le bouton de déconnexion"
+  },
+  "noData": "Aucune intervention",
+  "@noData": {
+    "description": "Message affiché quand la liste est vide"
+  }
+}
+
