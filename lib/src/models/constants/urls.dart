@@ -19,9 +19,10 @@ class UrlsData {
   String get materialsAvailable => "/interventions/materials";
   String get ping => "/ping";
   String get timesheet => "/create-timesheet";
-  String get recognizeImageUpload => "/recognize-image-upload";
+  String get recognizeImageUpload => "/recognize-image-gemini-upload";
 
   String interventionById(String id) => "/interventions/$id";
+  String estimateIntervention(String idIntervention) => "/interventions/$idIntervention/estimate";
   
   String commentsByIntervention(String idIntervention) => "/comments/interventions/$idIntervention";
   String documentsByIntervention(String idIntervention) => "/documents/interventions/$idIntervention";

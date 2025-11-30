@@ -4,6 +4,7 @@ import 'package:field_service/src/models/dto/intervention/intervention_list_resp
 import 'package:field_service/src/models/dto/intervention/intervention_update_response.dto.dart';
 import 'package:field_service/src/models/dto/intervention/intervention_sync_request.dto.dart';
 import 'package:field_service/src/models/dto/intervention/intervention_sync_response.dto.dart';
+import 'package:field_service/src/models/dto/intervention/intervention_estimate_response.dto.dart';
 import 'package:field_service/src/repository/remote/base_remote.repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -110,6 +111,37 @@ class InterventionRemoteRepository {
 
     throw RemoteException(
       remoteMessage: 'Réponse inattendue du serveur lors de la synchronisation des interventions',
+    );
+  }
+
+  /// Génère une estimation pour une intervention.
+  ///
+  /// [interventionId] : ID de l'intervention pour laquelle générer l'estimation.
+  ///
+  /// Retourne une réponse contenant l'estimation (temps estimé, raisonnement, confiance).
+  Future<InterventionEstimateResponseDto> estimateIntervention({
+    required String interventionId,
+  }) async {
+    final response = await baseRemoteRepository.post(
+      Urls.urls.estimateIntervention(interventionId),
+      body: <String, dynamic>{},
+    );
+
+    if (response is Map<String, dynamic>) {
+      final success = response['success'];
+      if (success is bool && !success) {
+        throw RemoteException(
+          remoteMessage:
+              response['message'] as String? ??
+                  'Impossible de générer l\'estimation de l\'intervention',
+        );
+      }
+
+      return InterventionEstimateResponseDto.fromJson(response);
+    }
+
+    throw RemoteException(
+      remoteMessage: 'Réponse inattendue du serveur lors de la génération de l\'estimation',
     );
   }
 }

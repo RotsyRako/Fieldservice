@@ -534,6 +534,55 @@ class _InterventionViewState extends ConsumerState<InterventionView>
               } else if (isEnCours && !isTimerActive) {
                 return Column(
                   children: [
+                    // Affichage de l'estimation
+                    Builder(
+                      builder: (context) {
+                        final interventionId = _currentIntervention.id;
+                        if (interventionId == null) {
+                          return const SizedBox.shrink();
+                        }
+                        
+                        final estimateAsync = ref.watch(
+                          interventionEstimateProvider(interventionId),
+                        );
+                        
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ThemeText.bodyLargeBold(
+                                'Temps estimé : ',
+                                color: theme.colors.grey50,
+                              ),
+                              estimateAsync.when(
+                                data: (estimate) {
+                                  if (estimate == null) {
+                                    return ThemeText.bodyLargeBold(
+                                      '--',
+                                      color: theme.colors.grey50,
+                                    );
+                                  }
+                                  // Afficher le temps au format HH:mm:ss
+                                  return ThemeText.bodyLargeBold(
+                                    estimate.estimatedTime,
+                                    color: theme.colors.primary50,
+                                  );
+                                },
+                                loading: () => ThemeText.bodyLargeBold(
+                                  '--',
+                                  color: theme.colors.grey50,
+                                ),
+                                error: (_, __) => ThemeText.bodyLargeBold(
+                                  '--',
+                                  color: theme.colors.grey50,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                     ThemeButton.primary(
                       icon: Ic.play_arrow,
                       label: 'Démarrer l\'intervention',

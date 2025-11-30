@@ -8,6 +8,96 @@ part of 'intervention.controller.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Provider pour récupérer l'estimation d'une intervention
+
+@ProviderFor(interventionEstimate)
+const interventionEstimateProvider = InterventionEstimateFamily._();
+
+/// Provider pour récupérer l'estimation d'une intervention
+
+final class InterventionEstimateProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<InterventionEstimateDataDto?>,
+          InterventionEstimateDataDto?,
+          FutureOr<InterventionEstimateDataDto?>
+        >
+    with
+        $FutureModifier<InterventionEstimateDataDto?>,
+        $FutureProvider<InterventionEstimateDataDto?> {
+  /// Provider pour récupérer l'estimation d'une intervention
+  const InterventionEstimateProvider._({
+    required InterventionEstimateFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'interventionEstimateProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$interventionEstimateHash();
+
+  @override
+  String toString() {
+    return r'interventionEstimateProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<InterventionEstimateDataDto?> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<InterventionEstimateDataDto?> create(Ref ref) {
+    final argument = this.argument as String;
+    return interventionEstimate(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is InterventionEstimateProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$interventionEstimateHash() =>
+    r'77f3133af2b7a7c8caef122e2b54a31b3ce6dc8e';
+
+/// Provider pour récupérer l'estimation d'une intervention
+
+final class InterventionEstimateFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          FutureOr<InterventionEstimateDataDto?>,
+          String
+        > {
+  const InterventionEstimateFamily._()
+    : super(
+        retry: null,
+        name: r'interventionEstimateProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  /// Provider pour récupérer l'estimation d'une intervention
+
+  InterventionEstimateProvider call(String interventionId) =>
+      InterventionEstimateProvider._(argument: interventionId, from: this);
+
+  @override
+  String toString() => r'interventionEstimateProvider';
+}
 
 @ProviderFor(InterventionController)
 const interventionControllerProvider = InterventionControllerFamily._();
@@ -52,7 +142,7 @@ final class InterventionControllerProvider
 }
 
 String _$interventionControllerHash() =>
-    r'025183a7f18301e105771419b6b37994171dabaf';
+    r'7bcad522f0c182d6a466bc1e564a239f63e4df53';
 
 final class InterventionControllerFamily extends $Family
     with

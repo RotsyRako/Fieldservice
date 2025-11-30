@@ -99,7 +99,7 @@ final class SyncControllerProvider
   SyncController create() => SyncController();
 }
 
-String _$syncControllerHash() => r'e60a091dfd0f3fcc8086a7302e19773a3ffb584f';
+String _$syncControllerHash() => r'9ec191d608074b3fe873818cbe4e3a744e839dd6';
 
 /// Controller pour gérer la synchronisation des interventions
 

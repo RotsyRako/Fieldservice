@@ -33,7 +33,7 @@ final class SignInControllerProvider
   SignInController create() => SignInController();
 }
 
-String _$signInControllerHash() => r'589a0d204f442e509edba1d428284fa6c02102e5';
+String _$signInControllerHash() => r'c9c2f339bb2e53ad29718b18509e820ff562d1cf';
 
 abstract class _$SignInController extends $AsyncNotifier<void> {
   FutureOr<void> build();

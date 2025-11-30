@@ -21,9 +21,20 @@ import 'package:field_service/src/services/applying/local/intervention/intervent
 import 'package:field_service/src/models/dto/signature/signature_dto.dart';
 import 'package:field_service/src/services/applying/remote/intervention/intervention_remote.sa.dart';
 import 'package:field_service/src/services/applying/remote/scan/scan_remote.sa.dart';
+import 'package:field_service/src/models/dto/intervention/intervention_estimate_response.dto.dart';
 import 'package:image_picker/image_picker.dart';
 
 part 'intervention.controller.g.dart';
+
+/// Provider pour récupérer l'estimation d'une intervention
+@riverpod
+Future<InterventionEstimateDataDto?> interventionEstimate(
+  Ref ref,
+  String interventionId,
+) async {
+  final controller = ref.read(interventionControllerProvider(interventionId).notifier);
+  return await controller.getEstimate(interventionId: interventionId);
+}
 
 @riverpod
 class InterventionController extends _$InterventionController {
@@ -756,6 +767,32 @@ class InterventionController extends _$InterventionController {
       print('Erreur lors de la validation de la signature: $e');
       print('Stack trace: $stackTrace');
       rethrow; // Relancer l'exception pour que la vue puisse afficher le message
+    }
+  }
+
+  /// Récupère l'estimation d'une intervention
+  /// 
+  /// [interventionId] : L'ID de l'intervention
+  /// 
+  /// Retourne les données d'estimation ou null en cas d'erreur
+  Future<InterventionEstimateDataDto?> getEstimate({
+    required String interventionId,
+  }) async {
+    try {
+      final service = ref.read(interventionRemoteServiceProvider);
+      
+      final estimate = await service.estimateIntervention(
+        interventionId: interventionId,
+        onSuccess: (_) {},
+        onFailure: (error) {
+          print('Erreur lors de la récupération de l\'estimation: $error');
+        },
+      );
+
+      return estimate;
+    } catch (e) {
+      print('Erreur lors de la récupération de l\'estimation: $e');
+      return null;
     }
   }
 }

@@ -10,5 +10,5 @@ part of 'app_config.dart';
 // ignore_for_file: type=lint
 // generated_from: .env
 final class _AppConfig {
-  static const String baseUrl = 'http://192.168.50.99:3000';
+  static const String baseUrl = 'https://field-service-3fak.onrender.com';
 }

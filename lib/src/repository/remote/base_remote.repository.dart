@@ -18,6 +18,24 @@ part 'base_remote.repository.g.dart';
 class BaseRemoteRepository {
   final AppSharedPreferences appSharedPreferences;
 
+  /// Affiche une longue chaîne en la divisant en chunks pour éviter la troncature
+  void _printLongString(String prefix, String content) {
+    const int chunkSize = 800; // Taille des chunks (Flutter limite à ~1000 caractères par ligne)
+    
+    if (content.length <= chunkSize) {
+      print('$prefix\n$content');
+      return;
+    }
+    
+    print('$prefix');
+    print(List.filled(80, '=').join()); // Séparateur visuel
+    for (int i = 0; i < content.length; i += chunkSize) {
+      final end = (i + chunkSize < content.length) ? i + chunkSize : content.length;
+      print(content.substring(i, end));
+    }
+    print(List.filled(80, '=').join()); // Séparateur visuel (fin)
+  }
+
   BaseRemoteRepository({
     required this.appSharedPreferences,
   });
@@ -148,7 +166,15 @@ class BaseRemoteRepository {
 
       if (kDebugMode) {
         print('POST Request: $finalUrl');
-        print('POST Body: $json');
+        // Formater le JSON pour une meilleure lisibilité
+        try {
+          final jsonObject = jsonDecode(json);
+          final formattedJson = const JsonEncoder.withIndent('  ').convert(jsonObject);
+          _printLongString('POST Body (formatted):', formattedJson);
+        } catch (e) {
+          // Si le JSON ne peut pas être formaté, afficher tel quel
+          _printLongString('POST Body: ', json);
+        }
       }
 
       final response = await http.post(

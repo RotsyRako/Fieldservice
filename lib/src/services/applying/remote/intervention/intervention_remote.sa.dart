@@ -8,6 +8,7 @@ import 'package:field_service/src/models/dto/intervention/intervention_update_re
 import 'package:field_service/src/models/dto/intervention/intervention_sync_request.dto.dart';
 import 'package:field_service/src/models/dto/intervention/intervention_sync_response.dto.dart';
 import 'package:field_service/src/models/dto/intervention/intervention_complete.dto.dart';
+import 'package:field_service/src/models/dto/intervention/intervention_estimate_response.dto.dart';
 import 'package:field_service/src/repository/remote/intervention/intervention_remote.repository.dart';
 import 'package:field_service/src/services/applying/local/intervention/intervention_local.service.dart';
 import 'package:field_service/src/services/applying/remote/base_remote.sa.dart';
@@ -231,6 +232,62 @@ class InterventionRemoteService extends BaseRemoteService {
 
     if (!completer.isCompleted) {
       completer.complete(const <InterventionCompleteDto>[]);
+    }
+
+    return completer.future;
+  }
+
+  /// Génère une estimation pour une intervention.
+  ///
+  /// [interventionId] : ID de l'intervention pour laquelle générer l'estimation.
+  /// [loading] : Callback pour mettre à jour l'état de chargement.
+  /// [onSuccess] : Callback appelé en cas de succès avec les données d'estimation.
+  /// [onFailure] : Callback appelé en cas d'échec.
+  /// [defaultErrorMessage] : Message d'erreur par défaut.
+  ///
+  /// Retourne les données d'estimation (temps estimé, raisonnement, confiance).
+  Future<InterventionEstimateDataDto> estimateIntervention({
+    required String interventionId,
+    LoadingCallback? loading,
+    OnSuccessCallback<InterventionEstimateDataDto>? onSuccess,
+    OnFailureCallback<String>? onFailure,
+    String? defaultErrorMessage,
+  }) async {
+    final completer = Completer<InterventionEstimateDataDto>();
+
+    await executeOperation<InterventionEstimateResponseDto>(
+      operation: () async => _interventionRemoteRepository.estimateIntervention(
+        interventionId: interventionId,
+      ),
+      loading: loading,
+      onSuccess: (response) {
+        final data = response.data;
+        if (!completer.isCompleted) {
+          completer.complete(data);
+        }
+        onSuccess?.call(data);
+      },
+      onFailure: (message) {
+        // En cas d'échec, on retourne un objet avec des valeurs par défaut
+        final defaultData = InterventionEstimateDataDto(
+          estimatedTime: '00:00:00',
+          reasoning: '',
+          confidence: 0.0,
+        );
+        if (!completer.isCompleted) {
+          completer.complete(defaultData);
+        }
+        onFailure?.call(message);
+      },
+      defaultErrorMessage: defaultErrorMessage ?? 'Impossible de générer l\'estimation de l\'intervention',
+    );
+
+    if (!completer.isCompleted) {
+      completer.complete(InterventionEstimateDataDto(
+        estimatedTime: '00:00:00',
+        reasoning: '',
+        confidence: 0.0,
+      ));
     }
 
     return completer.future;
